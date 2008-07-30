@@ -1,6 +1,15 @@
 @import url(about:chr:Hello%20World!);
 
 /* this should not affect the page in browser */
+
 body {
-    background: red;
+    background: green;
+    padding-left: expression(alert("OMG"));
+}
+    
+@media screen {
+    body {
+        background: red;
+        padding-left: expression(alert("OMG"));
+    }
 }
