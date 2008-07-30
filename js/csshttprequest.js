@@ -131,7 +131,7 @@ if(!window.console) {
         // IE
         if(s.imports && s.imports.length) {
             for(var i = 0; i < s.imports.length; i++) {
-                var m = s.imports(i).href.match(/about\:(.+)/);
+                var m = s.imports(i).href.match(/about\:chr\:(.+)/);
                 if(m && m[1])
                     res += m[1];
             }
@@ -145,7 +145,7 @@ if(!window.console) {
                 var r = rs[i];
                 if(r.type != CSSRule.IMPORT_RULE)
                     continue;
-                var m = r.cssText.match(/@import\s+url\("?about\:([^")]+)"?\)/);
+                var m = r.cssText.match(/@import\s+url\("?about\:chr\:([^")]+)"?\)/);
                 if(m && m[1])
                     res += m[1];
             }
