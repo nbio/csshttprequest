@@ -4,11 +4,6 @@ Copyright 2008 nb.io - http://nb.io/
 Licensed under Apache License, Version 2.0 - http://www.apache.org/licenses/LICENSE-2.0.html
 */
 
-if(!window.console) {
-    window.console = {};
-    window.console.log = function(s) { document.body.innerHTML += (""+ s).replace(/</g, "&;lt;") + "<br/>"; }
-}
-
 (function(){
     var chr = window.CSSHttpRequest = {};
     
