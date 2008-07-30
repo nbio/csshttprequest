@@ -6,7 +6,7 @@ __author__ = "Randy Reddig - ydnar@nb.io"
 import urllib
 
 
-PREFIX = "about:"
+PREFIX = "about:chr:"
 LENGTH = 2000 - len(PREFIX) # Internet Explorer 2KB URI limit
 
 
