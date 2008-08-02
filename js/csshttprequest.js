@@ -7,7 +7,8 @@ Licensed under Apache License, Version 2.0 - http://www.apache.org/licenses/LICE
 (function(){
     var chr = window.CSSHttpRequest = {};
     
-    chr.ID = "__csshttprequest__"
+    chr.ID = "__csshttprequest__";
+    chr.DELAY = "50";
     chr.counter = 0;
     chr.requests = {};
     chr.timeout = null;
@@ -88,7 +89,7 @@ Licensed under Apache License, Version 2.0 - http://www.apache.org/licenses/LICE
     chr.startPoll = function() {
         if(chr.timeout)
             return;
-        chr.timeout = window.setTimeout(chr.poll, 100);
+        chr.timeout = window.setTimeout(chr.poll, chr.DELAY);
     };
     
     
