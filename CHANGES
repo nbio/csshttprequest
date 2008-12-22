@@ -1,3 +1,10 @@
-2007-07-29
+2008-12-21
+    Consolidated repository
+
+2008-12-19
+    New version
+    Replaced @import with background-image transport
+
+2008-07-29
     Initial version
     Safari, Firefox 2.x+, IE6+ support
