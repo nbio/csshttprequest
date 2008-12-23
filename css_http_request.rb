@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby -wKU
 require "erb"
 require "enumerator"
 
