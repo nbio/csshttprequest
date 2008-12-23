@@ -8,7 +8,7 @@
 require "erb"
 require "enumerator"
 
-class CssHttpRequest
+module CssHttpRequest
   PREFIX = "data:,".freeze
   LENGTH = (2000 - PREFIX.size).freeze # Internet Explorer 2KB URI limit
 
