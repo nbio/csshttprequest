@@ -3,7 +3,7 @@
  * CSSHttpRequest PHP Encoder 1.0
  *
  * @author Tim Akinbo <obnika@timakinbo.com>, Randy Reddig <ydnar@nb.io>
- * @version 1.1
+ * @version 1.2
  * @license http://www.apache.org/licenses/LICENSE-2.0.html Apache License 2.0
  * @copyright Copyright (c) 2008, Tim Akinbo
  */
@@ -21,6 +21,9 @@ function encode($string) {
 	return $out;
 }
 
-echo encode(fgets(STDIN));
+/* unit test */
+if(STDIN) {
+    echo encode(fgets(STDIN));
+}
 
 ?>
