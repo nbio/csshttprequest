@@ -23,7 +23,8 @@ function encode($string) {
 
 /* unit test */
 if(STDIN) {
-    echo encode(fgets(STDIN));
+    $string = file_get_contents("php://stdin", "r");
+    echo encode($string);
 }
 
 ?>
