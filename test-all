@@ -15,7 +15,7 @@ class TestSequenceFunctions(unittest.TestCase):
         self.output = {}
         for filename in glob.glob(os.path.join('tests','*.in')):
             with open(filename) as f:
-                self.input[filename.rsplit('.')[0]] = self._normalize(f.read())
+                self.input[filename.rsplit('.')[0]] = f.read()
         for filename in glob.glob(os.path.join('tests','*.out')):
             with open(filename) as f:
                 self.output[filename.rsplit('.')[0]] = self._normalize(f.read())
