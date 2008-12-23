@@ -1,3 +1,10 @@
+# CSSHttpRequest Ruby Encoder
+#
+# Author: Cameron Walters <cameron@nb.io>
+# License: Apache License 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
+# Copyright (c) 2008, Cameron Walters
+
+
 require "erb"
 require "enumerator"
 

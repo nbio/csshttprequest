@@ -1,6 +1,6 @@
 <?php
 /**
- * CSSHttpRequest PHP Encoder 1.0
+ * CSSHttpRequest PHP Encoder
  *
  * @author Tim Akinbo <obnika@timakinbo.com>, Randy Reddig <ydnar@nb.io>
  * @version 1.2
