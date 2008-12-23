@@ -12,7 +12,12 @@ def encode(str)
   slice_num = 0
   output = ""
   quoted.each_slice(LENGTH) do |chunk|
-    out += "#c%d{background:url(%s%s);}\n" % (slice_num, PREFIX, chunk)
+    output += "#c%d{background:url(%s%s);}\n" % [slice_num, PREFIX, chunk]
     slice_num += 1
   end
-  out
+  output
+end
+
+if __FILE__ == $PROGRAM_NAME
+  puts encode(STDIN.read)
+end
