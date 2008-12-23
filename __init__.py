@@ -1,3 +1,6 @@
+#!/usr/bin/python
+
+
 __license__ = "Apache 2.0"
 __copyright__ = "Copyright 2008 nb.io"
 __author__ = "Randy Reddig - ydnar@nb.io"
@@ -18,3 +21,8 @@ def encode(string):
         out += "#c%d{background:url(%s%s);}\n" % (n, PREFIX, quoted[i:i+LENGTH])
         n += 1
     return out
+
+
+if __name__ == '__main__':
+    import sys
+    sys.stdout.write(encode(sys.stdin.read()))
