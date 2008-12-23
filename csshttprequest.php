@@ -14,9 +14,8 @@ define('LENGTH', 2000 - strlen(PREFIX)); # Internet Explorer 2KB URI limit (http
 function encode($string) {
 	$quoted = rawurlencode($string);
 	$out = "";
-	$n = 0;
-	for ($i = 0; $i < strlen($quoted); $i+=LENGTH) {
-		$out .= "#c" . $n . "{background:url(" . PREFIX . substr($quoted, $i, $i+LENGTH) . ");}\n";
+	for ($i = 0, $n = 0; $i < strlen($quoted); $i += LENGTH, $n++) {
+		$out .= "#c" . $n . "{background:url(" . PREFIX . substr($quoted, $i, LENGTH) . ");}\n";
 	}
 	return $out;
 }

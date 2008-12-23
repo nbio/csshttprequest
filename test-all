@@ -3,34 +3,33 @@
 
 from __future__ import with_statement
 import os
+import re
 import sys
 import glob
 import unittest
 from subprocess import Popen, PIPE
+from csshttprequest import encode, decode
 
 
 class TestSequenceFunctions(unittest.TestCase):
     def setUp(self):
-        self.input = {}
-        self.output = {}
+        self.fixtures = {}
         for filename in glob.glob(os.path.join('tests','*.in')):
             with open(filename) as f:
-                self.input[filename.rsplit('.')[0]] = f.read()
-        for filename in glob.glob(os.path.join('tests','*.out')):
-            with open(filename) as f:
-                self.output[filename.rsplit('.')[0]] = self._normalize(f.read())
+                self.fixtures[filename.rsplit('.')[0]] = f.read()
     
     def _normalize(self, value):
         return value.rstrip('\n')
     
     def _test_cmd(self, cmd):
-        for test in self.input.keys():
-            sys.stdout.write("\nTesting %s with %s" % (cmd[1], test))
+        for key in self.fixtures.keys():
+            fixture = self.fixtures[key]
+            sys.stdout.write("\nTesting %s with %s" % (cmd[1], key))
             pipe = Popen(cmd, stdin=PIPE, stdout=PIPE, close_fds=True)
-            pipe.stdin.write(self.input[test])
+            pipe.stdin.write(fixture)
             pipe.stdin.close()
-            output = self._normalize(pipe.stdout.read())
-            self.assertEqual(output, self.output[test])
+            output = decode(self._normalize(pipe.stdout.read()))
+            self.assertEqual(output, fixture)
     
     def test_python(self):
         self._test_cmd(['python', 'csshttprequest.py'])

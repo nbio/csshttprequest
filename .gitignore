@@ -1,0 +1,5 @@
+.DS_Store
+dns-shutdown.tap
+*.pyc
+*.pid
+*.log
