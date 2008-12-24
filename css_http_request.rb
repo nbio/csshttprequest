@@ -12,7 +12,7 @@ module CssHttpRequest
   PREFIX = "data:,".freeze
   LENGTH = (2000 - PREFIX.size).freeze # Internet Explorer 2KB URI limit
 
-  def self.encode(str)
+  def encode_chr(str)
     quoted = ERB::Util.url_encode(str)
     slice_num = 0
     output = ""
@@ -24,8 +24,7 @@ module CssHttpRequest
   end  
 end
 
-
-
 if __FILE__ == $PROGRAM_NAME
-  puts CssHttpRequest.encode(STDIN.read)
+  include CssHttpRequest
+  puts encode_chr(STDIN.read)
 end
