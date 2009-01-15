@@ -15,10 +15,15 @@ module CssHttpRequest
   def encode_chr(str)
     quoted = ERB::Util.url_encode(str)
     slice_num = 0
+    last_start = 0
+    chunks = (quoted.length.to_f / LENGTH).ceil
+    STDERR << chunks
     output = ""
-    quoted.each_slice(LENGTH) do |chunk|
-      output += "#c%d{background:url(%s%s);}\n" % [slice_num, PREFIX, chunk]
+    chunks.times do |n|
+      finish = last_start + LENGTH
+      output += "#c%d{background:url(%s%s);}\n" % [slice_num, PREFIX, quoted[last_start...finish]]
       slice_num += 1
+      last_start = finish
     end
     output
   end  
