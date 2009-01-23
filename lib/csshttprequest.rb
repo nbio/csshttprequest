@@ -4,15 +4,13 @@
 # License: Apache License 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
 # Copyright (c) 2008, Cameron Walters
 
-
 require "erb"
-require "enumerator"
 
-module CSSHTTPRequest
+class CSSHTTPRequest
   PREFIX = "data:,".freeze
   LENGTH = (2000 - PREFIX.size).freeze # Internet Explorer 2KB URI limit
 
-  def encode(str)
+  def self.encode(str)
     quoted = ERB::Util.url_encode(str)
     slice_num = 0
     last_start = 0
@@ -30,6 +28,6 @@ module CSSHTTPRequest
 end
 
 if __FILE__ == $PROGRAM_NAME
-  include CSSHTTPRequest
-  puts encode(STDIN.read)
+  
+  puts CSSHTTPRequest.encode(STDIN.read)
 end
