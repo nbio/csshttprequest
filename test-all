@@ -14,7 +14,7 @@ from csshttprequest import encode, decode
 class TestSequenceFunctions(unittest.TestCase):
     def setUp(self):
         self.fixtures = {}
-        for filename in glob.glob(os.path.join('tests','*.in')):
+        for filename in glob.glob(os.path.join('test', 'inputs', '*.in')):
             with open(filename) as f:
                 self.fixtures[filename.rsplit('.')[0]] = f.read()
     
@@ -35,7 +35,7 @@ class TestSequenceFunctions(unittest.TestCase):
         self._test_cmd(['python', 'csshttprequest.py'])
     
     def test_ruby(self):
-        self._test_cmd(['ruby', 'css_http_request.rb'])
+        self._test_cmd(['ruby', os.path.join('lib', 'csshttprequest.rb')])
     
     def test_php(self):
         self._test_cmd(['php', 'csshttprequest.php'])
