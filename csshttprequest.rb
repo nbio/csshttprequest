@@ -1,4 +1,4 @@
-# CSSHttpRequest Ruby Encoder
+# CSSHTTPRequest Ruby Encoder
 #
 # Author: Cameron Walters <cameron@nb.io>
 # License: Apache License 2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
@@ -8,11 +8,11 @@
 require "erb"
 require "enumerator"
 
-module CssHttpRequest
+module CSSHTTPRequest
   PREFIX = "data:,".freeze
   LENGTH = (2000 - PREFIX.size).freeze # Internet Explorer 2KB URI limit
 
-  def encode_chr(str)
+  def encode(str)
     quoted = ERB::Util.url_encode(str)
     slice_num = 0
     last_start = 0
@@ -30,6 +30,6 @@ module CssHttpRequest
 end
 
 if __FILE__ == $PROGRAM_NAME
-  include CssHttpRequest
-  puts encode_chr(STDIN.read)
+  include CSSHTTPRequest
+  puts encode(STDIN.read)
 end
