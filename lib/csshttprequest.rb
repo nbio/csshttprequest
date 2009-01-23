@@ -15,7 +15,6 @@ class CSSHTTPRequest
     slice_num = 0
     last_start = 0
     chunks = (quoted.length.to_f / LENGTH).ceil
-    STDERR << chunks
     output = ""
     chunks.times do |n|
       finish = last_start + LENGTH
